@@ -2,6 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader } from 'components/ui/Card'
 import { Skeleton } from 'components/ui/Skeleton'
 
 export function UserDetailSkeleton() {
+  const SKELETON_CARD_COUNT = 3
   return (
     <div data-testid="skeleton-loader" className="mt-24 min-h-screen w-full p-4">
       <div className="mx-auto md:max-w-3xl">
@@ -30,7 +31,7 @@ export function UserDetailSkeleton() {
             <Skeleton className="h-4 w-1/3" />
           </CardContent>
           <div className="grid grid-cols-3 gap-4 bg-muted p-6">
-            {[...Array(3)].map((_, index) => (
+            {Array.from({ length: SKELETON_CARD_COUNT }).map((_, index) => (
               <Card key={index} className="flex flex-col items-center p-6">
                 <Skeleton className="mb-2 h-8 w-8 rounded-full" />
                 <Skeleton className="mb-1 h-6 w-16" />

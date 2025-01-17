@@ -22,6 +22,11 @@ interface SearchPageLayoutProps {
   children?: React.ReactNode
 }
 
+const SKELETON_PROJECT_COUNT = 4
+const SKELETON_ISSUE_COUNT = 4
+const SKELETON_CHAPTER_COUNT = 4
+const SKELETON_USER_COUNT = 12
+
 const SearchPageLayout = ({
   isLoaded,
   totalPages,
@@ -55,28 +60,28 @@ const SearchPageLayout = ({
         <>
           {indexName === 'projects' && (
             <div className="flex min-h-screen w-full flex-col items-center justify-center">
-              {[...Array(4)].map((_, idx) => (
+              {Array.from({ length: SKELETON_PROJECT_COUNT }).map((_, idx) => (
                 <ProjectSkeleton key={idx} />
               ))}
             </div>
           )}
           {indexName === 'issues' && (
             <div className="flex min-h-screen w-full flex-col items-center">
-              {[...Array(4)].map((_, idx) => (
+              {Array.from({ length: SKELETON_ISSUE_COUNT }).map((_, idx) => (
                 <ContributeSkeleton key={idx} />
               ))}
             </div>
           )}
           {(indexName === 'chapters' || indexName === 'committees') && (
             <div className="flex min-h-screen w-full flex-col items-center justify-center">
-              {[...Array(4)].map((_, idx) => (
+              {Array.from({ length: SKELETON_CHAPTER_COUNT }).map((_, idx) => (
                 <ChapterSkeleton key={idx} />
               ))}
             </div>
           )}
           {indexName === 'users' && (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {[...Array(12)].map((_, idx) => (
+              {Array.from({ length: SKELETON_USER_COUNT }).map((_, idx) => (
                 <CommunitySkeleton key={idx} />
               ))}
             </div>
