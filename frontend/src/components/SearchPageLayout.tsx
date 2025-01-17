@@ -23,7 +23,7 @@ interface SearchPageLayoutProps {
 }
 
 const SKELETON_PROJECT_COUNT = 4
-const SKELETON_ISSUE_COUNT = 4
+const SKELETON_CONTRIBUTE_COUNT = 4
 const SKELETON_CHAPTER_COUNT = 4
 const SKELETON_USER_COUNT = 12
 
@@ -67,7 +67,7 @@ const SearchPageLayout = ({
           )}
           {indexName === 'issues' && (
             <div className="flex min-h-screen w-full flex-col items-center">
-              {Array.from({ length: SKELETON_ISSUE_COUNT }).map((_, idx) => (
+              {Array.from({ length: SKELETON_CONTRIBUTE_COUNT }).map((_, idx) => (
                 <ContributeSkeleton key={idx} />
               ))}
             </div>
