@@ -1,5 +1,5 @@
-import { Card, CardContent, CardFooter, CardHeader } from 'components/ui/card'
-import { Skeleton } from 'components/ui/skeleton'
+import { Card, CardContent, CardFooter, CardHeader } from 'components/ui/Card'
+import { Skeleton } from 'components/ui/Skeleton'
 
 export function UserDetailSkeleton() {
   return (

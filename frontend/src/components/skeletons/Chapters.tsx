@@ -1,4 +1,4 @@
-import { Skeleton } from 'components/ui/skeleton'
+import { Skeleton } from 'components/ui/Skeleton'
 
 export function ChapterSkeleton() {
   const SKELETON_AVATAR_COUNT = 3
