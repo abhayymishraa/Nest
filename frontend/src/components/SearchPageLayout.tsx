@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Pagination from 'components/Pagination'
 import SearchBar from 'components/Search'
-import ChapterSkeleton from 'components/skeletons/ChapterSkeleton'
-import CommunitySkeleton from 'components/skeletons/CommunitySkeleton'
-import ContributeSkeleton from 'components/skeletons/ContributeSkeleton'
-import ProjectSkeleton from 'components/skeletons/ProjectSkeleton'
+import ChapterSkeleton from 'components/skeletons/Chapters'
+import ContributeSkeleton from 'components/skeletons/Contribute'
+import ProjectSkeleton from 'components/skeletons/Projects'
+import CommunitySkeleton from 'components/skeletons/Users'
 
 interface SearchPageLayoutProps {
   isLoaded: boolean

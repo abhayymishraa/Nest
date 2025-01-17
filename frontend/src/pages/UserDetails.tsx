@@ -15,7 +15,7 @@ import { UserDetailsProps } from 'types/user'
 import logger from 'utils/logger'
 import { IndexedObject, removeIdxPrefix } from 'utils/utility'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
-import UserDetailSkelton from 'components/skeletons/UserDetailSkeleton'
+import UserDetailSkelton from 'components/skeletons/UserDetails'
 
 const UserDetailsPage: React.FC = () => {
   const { userKey } = useParams()

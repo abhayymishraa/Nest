@@ -5,7 +5,7 @@ import { getFilteredIcons, handleSocialUrls } from 'utils/utility'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
 import FontAwesomeIconWrapper from 'wrappers/FontAwesomeIconWrapper'
 import Card from 'components/Card'
-import ChapterSkelton from 'components/skeletons/ChapterSkeleton'
+import ChapterSkelton from 'components/skeletons/Chapters'
 
 const CommitteeDetailsPage = () => {
   const { committeeKey } = useParams()

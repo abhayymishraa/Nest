@@ -6,7 +6,7 @@ import { getFilteredIcons } from 'utils/utility'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
 import FontAwesomeIconWrapper from 'wrappers/FontAwesomeIconWrapper'
 import Card from 'components/Card'
-import ProjectSkeleton from 'components/skeletons/ProjectSkeleton'
+import ProjectSkeleton from 'components/skeletons/Projects'
 
 const ProjectDetailsPage = () => {
   const { projectKey } = useParams()
