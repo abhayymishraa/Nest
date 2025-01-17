@@ -26,11 +26,11 @@ describe('ChapterDetailsPage Component', () => {
     jest.clearAllMocks()
   })
 
-  test('renders loading spinner initially', async () => {
+  test('renders skeleton loader initially', async () => {
     render(<ChapterDetailsPage />)
-    const loadingSpinner = screen.getAllByAltText('Loading indicator')
     await waitFor(() => {
-      expect(loadingSpinner.length).toBeGreaterThan(0)
+      const skeletonLoaders = screen.getAllByTestId('skeleton-loader')
+      expect(skeletonLoaders.length).toBeGreaterThan(0)
     })
   })
 

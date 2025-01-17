@@ -6,7 +6,7 @@ import { ErrorDisplay } from 'wrappers/ErrorWrapper'
 import FontAwesomeIconWrapper from 'wrappers/FontAwesomeIconWrapper'
 
 import Card from 'components/Card'
-import LoadingSpinner from 'components/LoadingSpinner'
+import ChapterSkelton from 'components/skeletons/ChapterSkeleton'
 
 const ChapterDetailsPage = () => {
   const { chapterKey } = useParams()
@@ -29,7 +29,7 @@ const ChapterDetailsPage = () => {
   if (isLoading)
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
-        <LoadingSpinner imageUrl="/img/owasp_icon_white_sm.png" />
+        <ChapterSkelton />
       </div>
     )
 

@@ -51,14 +51,14 @@ describe('UserDetailsPage', () => {
     fetchAlgoliaData.mockReset()
   })
 
-  test('renders loading spinner initially', async () => {
+  test('renders skeleton loader initially', async () => {
     fetchAlgoliaData.mockImplementation(() => new Promise(() => {}))
     await act(async () => {
       renderWithRouter(<UserDetailsPage />)
     })
-    const loadingSpinner = screen.getAllByAltText('Loading indicator')
+    const skeletonLoaders = screen.getAllByTestId('skeleton-loader')
     await waitFor(() => {
-      expect(loadingSpinner.length).toBeGreaterThan(0)
+      expect(skeletonLoaders.length).toBeGreaterThan(0)
     })
   })
 
@@ -68,10 +68,9 @@ describe('UserDetailsPage', () => {
     await act(async () => {
       renderWithRouter(<UserDetailsPage />)
     })
-
     // Wait for the loading state to finish
     await waitFor(() => {
-      expect(screen.queryByAltText('Loading indicator')).not.toBeInTheDocument()
+      expect(screen.queryByTestId('skeleton-loader')).not.toBeInTheDocument()
     })
 
     // Check for presence of user data

@@ -15,7 +15,7 @@ import { UserDetailsProps } from 'types/user'
 import logger from 'utils/logger'
 import { IndexedObject, removeIdxPrefix } from 'utils/utility'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
-import LoadingSpinner from 'components/LoadingSpinner'
+import UserDetailSkelton from 'components/skeletons/UserDetailSkeleton'
 
 const UserDetailsPage: React.FC = () => {
   const { userKey } = useParams()
@@ -45,7 +45,7 @@ const UserDetailsPage: React.FC = () => {
   if (isLoading)
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
-        <LoadingSpinner imageUrl="/img/owasp_icon_white_sm.png" />
+        <UserDetailSkelton />
       </div>
     )
 

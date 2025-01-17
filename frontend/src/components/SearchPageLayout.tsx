@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import LoadingSpinner from 'components/LoadingSpinner'
 import Pagination from 'components/Pagination'
 import SearchBar from 'components/Search'
+import ChapterSkeleton from 'components/skeletons/ChapterSkeleton'
+import CommunitySkeleton from 'components/skeletons/CommunitySkeleton'
+import ContributeSkeleton from 'components/skeletons/ContributeSkeleton'
+import ProjectSkeleton from 'components/skeletons/ProjectSkeleton'
 
 interface SearchPageLayoutProps {
   isLoaded: boolean
@@ -29,7 +32,6 @@ const SearchPageLayout = ({
   searchPlaceholder,
   empty,
   indexName,
-  loadingImageUrl = '/img/owasp_icon_white_sm.png',
   children,
 }: SearchPageLayoutProps) => {
   const [isSearchBarReady, setIsSearchBarReady] = useState(false)
@@ -50,9 +52,36 @@ const SearchPageLayout = ({
         />
       </div>
       {!isSearchBarReady || !isLoaded ? (
-        <div className="mt-20 flex h-64 w-full items-center justify-center">
-          <LoadingSpinner imageUrl={loadingImageUrl} />
-        </div>
+        <>
+          {indexName === 'projects' && (
+            <div className="flex min-h-screen w-full flex-col items-center justify-center">
+              {[...Array(4)].map((_, idx) => (
+                <ProjectSkeleton key={idx} />
+              ))}
+            </div>
+          )}
+          {indexName === 'issues' && (
+            <div className="flex min-h-screen w-full flex-col items-center">
+              {[...Array(4)].map((_, idx) => (
+                <ContributeSkeleton key={idx} />
+              ))}
+            </div>
+          )}
+          {(indexName === 'chapters' || indexName === 'committees') && (
+            <div className="flex min-h-screen w-full flex-col items-center justify-center">
+              {[...Array(4)].map((_, idx) => (
+                <ChapterSkeleton key={idx} />
+              ))}
+            </div>
+          )}
+          {indexName === 'users' && (
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {[...Array(12)].map((_, idx) => (
+                <CommunitySkeleton key={idx} />
+              ))}
+            </div>
+          )}
+        </>
       ) : (
         <>
           <div>

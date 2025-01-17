@@ -34,11 +34,11 @@ describe('ProjectPage Component', () => {
     jest.clearAllMocks()
   })
 
-  test('renders loading spinner initially', async () => {
+  test('renders skeleton loader initially', async () => {
     render(<ProjectDetailsPage />)
-    const loadingSpinner = screen.getAllByAltText('Loading indicator')
+    const skeletonLoaders = screen.getAllByTestId('skeleton-loader')
     await waitFor(() => {
-      expect(loadingSpinner.length).toBeGreaterThan(0)
+      expect(skeletonLoaders.length).toBeGreaterThan(0)
     })
   })
 

@@ -6,7 +6,7 @@ import { getFilteredIcons } from 'utils/utility'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
 import FontAwesomeIconWrapper from 'wrappers/FontAwesomeIconWrapper'
 import Card from 'components/Card'
-import LoadingSpinner from 'components/LoadingSpinner'
+import ProjectSkeleton from 'components/skeletons/ProjectSkeleton'
 
 const ProjectDetailsPage = () => {
   const { projectKey } = useParams()
@@ -28,8 +28,8 @@ const ProjectDetailsPage = () => {
 
   if (isLoading)
     return (
-      <div className="flex min-h-[60vh] items-center justify-center">
-        <LoadingSpinner imageUrl="/img/owasp_icon_white_sm.png" />
+      <div className="flex min-h-[55vh] items-center justify-center">
+        <ProjectSkeleton />
       </div>
     )
 
