@@ -9,7 +9,8 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useParams: () => ({
     projectKey: 'test-project',
-  
+  }),
+}))
 
 describe('ProjectDetailsPage Component', () => {
   beforeEach(() => {
@@ -31,7 +32,7 @@ describe('ProjectDetailsPage Component', () => {
       expect(skeletonLoaders.length).toBeGreaterThan(0)
     })
   })
-   
+
   test('topics visibility check', async () => {
     render(<ProjectDetailsPage />)
     await waitFor(() => {

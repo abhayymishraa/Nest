@@ -15,8 +15,6 @@ import { fetchAlgoliaData } from 'api/fetchAlgoliaData'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ErrorDisplay } from 'wrappers/ErrorWrapper'
-import FontAwesomeIconWrapper from 'wrappers/FontAwesomeIconWrapper'
-import Card from 'components/Card'
 import ProjectSkeleton from 'components/skeletons/Projects'
 
 export const formatDate = (timestamp: number) => {
@@ -29,7 +27,8 @@ export const formatDate = (timestamp: number) => {
 
 const ProjectDetailsPage = () => {
   const { projectKey } = useParams()
-  const [project, setProject] = useSta, setIsLoading] = useState(true)
+  const [project, setProject] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [showAllContributors, setShowAllContributors] = useState(false)
   const [showAllLanguages, setShowAllLanguages] = useState(false)
   const [showAllTopics, setShowAllTopics] = useState(false)
