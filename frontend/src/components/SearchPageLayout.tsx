@@ -20,6 +20,7 @@ interface SearchPageLayoutProps {
   indexName: string
   loadingImageUrl?: string
   children?: React.ReactNode
+  sortChildren?: React.ReactNode
 }
 
 const SKELETON_PROJECT_COUNT = 4
@@ -37,6 +38,8 @@ const SearchPageLayout = ({
   searchPlaceholder,
   empty,
   indexName,
+  loadingImageUrl = '/img/owasp_icon_white_sm.png',
+  sortChildren,
   children,
 }: SearchPageLayoutProps) => {
   const [isSearchBarReady, setIsSearchBarReady] = useState(false)
@@ -47,7 +50,7 @@ const SearchPageLayout = ({
 
   return (
     <div className="mt-16 flex min-h-screen w-full flex-col items-center justify-normal p-5 text-text">
-      <div className="w-full max-w-lg">
+      <div className="flex w-full items-center justify-center">
         <SearchBar
           indexName={indexName}
           onSearch={onSearch}
@@ -55,6 +58,7 @@ const SearchPageLayout = ({
           initialValue={searchQuery}
           onReady={handleSearchBarReady}
         />
+        <div>{sortChildren}</div>
       </div>
       {!isSearchBarReady || !isLoaded ? (
         <>
