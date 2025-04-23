@@ -56,15 +56,17 @@ export default function Header() {
         <Link href="/" onClick={() => setMobileMenuOpen(false)}>
           <div className="flex h-full items-center">
             <Image
-              width={64}
-              height={64}
-              src={'/img/owasp_icon_white_sm.png'}
-              className="hidden dark:block"
               alt="OWASP Logo"
+              className="hidden dark:block"
+              height={64}
+              priority={true}
+              src={'/img/owasp_icon_white_sm.png'}
+              width={64}
             />
             <Image
               width={64}
               height={64}
+              priority={true}
               src={'/img/owasp_icon_black_sm.png'}
               className="block dark:hidden"
               alt="OWASP Logo"
