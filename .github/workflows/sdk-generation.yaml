@@ -1,0 +1,82 @@
+name: Generate and Publish Python SDK
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**/rest/v1/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish-sdk:
+    name: Build and Publish Python SDK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python and Poetry
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "poetry"
+          cache-dependency-path: backend/poetry.lock
+
+      - name: Install liblab CLI
+        run: npm install -g liblab
+
+      - name: Install Python dependencies
+        working-directory: ./backend
+        run: poetry install
+
+      - name: 6. Generate OpenAPI spec file
+        working-directory: ./backend
+        env:
+          DJANGO_CONFIGURATION: Test
+        run: |
+          poetry run python manage.py export_openapi_schema --api settings.urls.api --output openapi.json
+
+      - name: Check if the OpenAPI spec has changed
+        id: spec_diff
+        run: |
+          SPEC_HASH=$(shasum -a 256 backend/openapi.json | awk '{print $1}')
+          echo "Current spec hash: $SPEC_HASH"
+          echo "spec_hash=$SPEC_HASH" >> $GITHUB_OUTPUT
+
+      - name: 8. Use cache to detect if this version was already published
+        id: cache-check
+        uses: actions/cache@v4
+        with:
+          path: .cache # Dummy path, we only care about the cache-hit result
+          key: sdk-published-${{ steps.spec_diff.outputs.spec_hash }}
+
+      - name: Build and Publish SDK with liblab CLI (if spec is new)
+        if: steps.cache-check.outputs.cache-hit != 'true'
+        env:
+          LIBLAB_TOKEN: ${{ secrets.LIBLAB_TOKEN }}
+          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          liblab build --config backend/liblab.config.json --yes
+
+      - name: Report SDK Publishing Status
+        if: always()
+        run: |
+          if [ "${{ steps.cache-check.outputs.cache-hit }}" == "true" ]; then
+            echo "Spec file has not changed since last successful publish. Skipping."
+          else
+            echo "New API spec detected. SDK has been generated and published."
+          fi
