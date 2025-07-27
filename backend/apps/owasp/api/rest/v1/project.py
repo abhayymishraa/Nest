@@ -37,7 +37,7 @@ class ProjectSchema(Schema):
 
 @router.get(
     "/",
-    description="Retrieve a paginated list of OWASP projects.",
+    description="Retrieve a paginated list of OWASP project.",
     operation_id="list_projects",
     response={200: list[ProjectSchema]},
     summary="List projects",
