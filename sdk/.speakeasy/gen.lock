@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.596.0
   generationVersion: 2.672.0
-  releaseVersion: 0.0.1
-  configChecksum: ceb0ff8d29fb412a2eee73cb11d4c8bc
+  releaseVersion: 0.0.2
+  configChecksum: 0024dac3f3934c81a60ef73fcd6ea513
   repoURL: https://github.com/abhayymishraa/python-owasp-nest-sdk.git
   repoSubDirectory: sdk
   installationURL: https://github.com/abhayymishraa/python-owasp-nest-sdk.git#subdirectory=sdk
