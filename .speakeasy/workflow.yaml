@@ -4,6 +4,8 @@ sources:
   OWASP Nest API:
     inputs:
       - location: backend/openapi.json
+    transformations:
+      - removeUnused: true
     output: .speakeasy/out.openapi.yaml
     registry:
       location: registry.speakeasyapi.dev/owasp/nest/owasp-nest-api
@@ -12,9 +14,15 @@ targets:
     target: python
     source: OWASP Nest API
     output: sdk
+    publish:
+      pypi:
+        token: $pypi_token
     codeSamples:
+      output: .speakeasy/code_samples.yaml
       registry:
-        location: registry.speakeasyapi.dev/abhayymishraa/nest/nest-api-python-sdk
+        location: registry.speakeasyapi.dev/owasp/nest/nest-api-python-sdk
       labelOverride:
         fixedValue: Python (SDK)
       blocking: false
+    testing:
+      enabled: true
