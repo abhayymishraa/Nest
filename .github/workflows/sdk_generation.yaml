@@ -12,6 +12,10 @@ permissions:
         description: Force generation of SDKs
         type: boolean
         default: false
+      runs-on:
+        description: optionally set a specific runs-on
+        type: string
+        default: ubuntu-latest
       set_version:
         description: optionally set a specific SDK version
         type: string
