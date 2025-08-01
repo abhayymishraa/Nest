@@ -1,20 +1,20 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-  OWASP Nest API:
-    inputs:
-      - location: backend/openapi.json
-    output: .speakeasy/out.openapi.yaml
-    registry:
-      location: registry.speakeasyapi.dev/owasp/nest/owasp-nest-api
+    OWASP Nest API:
+        inputs:
+            - location: backend/openapi.json
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/owasp/nest/owasp-nest-api
 targets:
-  nest-api:
-    target: python
-    source: OWASP Nest API
-    output: sdk
-    codeSamples:
-      registry:
-        location: registry.speakeasyapi.dev/abhayymishraa/nest/nest-api-python-sdk
-      labelOverride:
-        fixedValue: Python (SDK)
-      blocking: false
+    nest-api:
+        target: python
+        source: OWASP Nest API
+        output: sdk
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/abhayymishraa/nest/nest-api-python-sdk-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false
