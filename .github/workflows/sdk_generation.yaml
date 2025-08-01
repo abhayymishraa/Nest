@@ -12,10 +12,6 @@ permissions:
         description: Force generation of SDKs
         type: boolean
         default: false
-      runs-on:
-        description: optionally set a specific runs-on
-        type: string
-        default: ubuntu-latest
       set_version:
         description: optionally set a specific SDK version
         type: string
@@ -31,8 +27,7 @@ jobs:
     with:
       force: ${{ github.event.inputs.force }}
       github_repository: abhayymishraa/python-owasp-nest-sdk
-      mode: direct
-      runs-on: ${{ github.event.inputs.runs-on }}
+      mode: pr
       set_version: ${{ github.event.inputs.set_version }}
       speakeasy_version: latest
     secrets:
