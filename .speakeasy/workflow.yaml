@@ -13,7 +13,7 @@ targets:
     source: OWASP Nest API
     codeSamples:
       registry:
-        location: registry.speakeasyapi.dev/owasp/nest/nest-api-python-sdk
+        location: registry.speakeasyapi.dev/abhayymishraa/nest/nest-api-python-sdk
       labelOverride:
         fixedValue: Python (SDK)
       blocking: false
