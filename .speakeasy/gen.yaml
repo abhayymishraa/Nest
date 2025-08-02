@@ -46,15 +46,15 @@ python:
   imports:
     option: openapi
     paths:
-      callbacks: ''
+      callbacks: ""
       errors: errors
-      operations: ''
-      shared: ''
-      webhooks: ''
+      operations: ""
+      shared: ""
+      webhooks: ""
   inputModelSuffix: input
   maxMethodParams: 999
   methodArguments: infer-optional-args
-  moduleName: ''
+  moduleName: ""
   outputModelSuffix: output
   packageName: nest-api
   pytestFilterWarnings: []

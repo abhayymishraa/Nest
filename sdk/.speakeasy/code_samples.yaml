@@ -1,0 +1,214 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for python target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/api/v1/github/issues/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_issues(page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/labels/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_labels(color="d93f0b", page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/organizations/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_organizations(location="United States of America", page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/releases/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_releases(tag_name="v1.0.0", page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/repositories/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_repositories(page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/users/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.list_users(location="India", page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/github/users/{login}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.git_hub.get_user(login="Enos13")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/owasp/chapters/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.owasp.list_chapters(country="India", region="Asia", page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/owasp/committees/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.owasp.list_committees(page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/owasp/events/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.owasp.list_events(page=1)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/owasp/projects/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            from nest_api import NestAPI
+            import os
+
+
+            with NestAPI(
+                server_url="https://api.example.com",
+                api_key_auth=os.getenv("NESTAPI_API_KEY_AUTH", ""),
+            ) as na_client:
+
+                res = na_client.owasp.list_projects(page=1)
+
+                # Handle response
+                print(res)
